@@ -19,14 +19,35 @@ For use in the browser, use [browserify](https://github.com/substack/node-browse
 To use the module,
 
 ``` javascript
-var lib = require( 'compute-midhinge' );
+var midhinge = require( 'compute-midhinge' );
+```
+
+#### midhinge( arr[, sorted] )
+
+Computes the midhinge provided an input `array`. If the input `array` is already `sorted`, set the `boolean` flag to `true`.
+
+``` javascript
+var unsorted = [ 8, 2, 3, 9, 5, 1, 4, 10, 7, 0, 6 ],
+	sorted = [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ];
+
+midhinge( unsorted );
+// returns 5
+
+midhinge( sorted, true );
+// returns 5
 ```
 
 
 ## Examples
 
 ``` javascript
-var lib = require( 'compute-midhinge' );
+var data = new Array( 100 );
+
+for ( var i = 0; i < data.length; i++ ) {
+    data[ i ] = Math.round( Math.random()*100 );
+}
+
+console.log( midhinge( data ) );
 ```
 
 To run the example code from the top-level application directory,
