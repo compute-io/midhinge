@@ -1,7 +1,7 @@
 {
   "name": "compute-midhinge",
   "version": "0.0.0",
-  "description": "Compute the midhinge for an array of numeric values.",
+  "description": "Compute the midhinge for a numeric array.",
   "author": {
     "name": "Rebekah Smith",
     "email": "rebekahjs17@gmail.com"
@@ -33,14 +33,19 @@
     "midhinge",
     "stats",
     "statistics",
+    "mathematics",
+    "math",
     "quartiles",
     "array",
-    "sorted"
+    "central tendency"
   ],
   "bugs": {
     "url": "https://github.com/compute-io/midhinge/issues"
   },
-  "dependencies": {},
+  "dependencies": {
+    "compute-quantile": "^1.0.0",
+    "validate.io-object": "^1.0.0"
+  },
   "devDependencies": {
     "chai": "1.x.x",
     "mocha": "1.x.x",

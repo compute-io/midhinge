@@ -1,3 +1,4 @@
+'use strict';
 
 // MODULES //
 
@@ -17,7 +18,6 @@ var expect = chai.expect,
 // TESTS //
 
 describe( 'compute-midhinge', function tests() {
-	'use strict';
 
 	it( 'should export a function', function test() {
 		expect( midhinge ).to.be.a( 'function' );
@@ -25,14 +25,14 @@ describe( 'compute-midhinge', function tests() {
 
 	it( 'should throw an error if provided a non-array', function test() {
 		var values = [
-					'5',
-					5,
-					true,
-					undefined,
-					null,
-					NaN,
-					function(){},
-					{}
+			'5',
+			5,
+			true,
+			undefined,
+			null,
+			NaN,
+			function(){},
+			{}
 		];
 
 		for ( var i = 0; i < values.length; i++ ) {
@@ -41,21 +41,21 @@ describe( 'compute-midhinge', function tests() {
 
 		function badValue( value ) {
 			return function() {
-				midhinge( value, true );
+				midhinge( value, {} );
 			};
 		}
 	});
 
-	it( 'should throw an error if provided a non-boolean for the second argument', function test() {
+	it( 'should throw an error if provided options is not an object', function test() {
 		var values = [
-					'5',
-					5,
-					[],
-					undefined,
-					null,
-					NaN,
-					function(){},
-					{}
+			'5',
+			5,
+			[],
+			undefined,
+			null,
+			NaN,
+			function(){},
+			true
 		];
 
 		for ( var i = 0; i < values.length; i++ ) {
@@ -72,12 +72,12 @@ describe( 'compute-midhinge', function tests() {
 	it( 'should compute the midhinge', function test() {
 		var data, expected;
 
-		// quartile indices are integers
+		// Quartile indices are integers...
 		// Q1: 3.5, Q3: 6.5, midhinge: 5
 		data = [ 6, 4, 3, 3, 5, 7, 4, 7 ];
 		expected = 5;
 
-		// unsorted test
+		// Unsorted test:
 		assert.strictEqual( midhinge( data ), expected );
 
 		// Sort the data:
@@ -85,10 +85,10 @@ describe( 'compute-midhinge', function tests() {
 			return a - b;
 		});
 
-		// sorted test
-		assert.strictEqual( midhinge( data, true ), expected );
+		// Sorted test:
+		assert.strictEqual( midhinge( data, {'sorted': true} ), expected );
 
-		// quartile indices are not integers
+		// Quartile indices are not integers...
 		// Q1: 2, Q3: 7, midhinge: 4.5
 		data = [ 3, -5, 2, 9, 6, 1, -2, 7, 7, 3, 6, 4, 8 ];
 		expected = 4.5;

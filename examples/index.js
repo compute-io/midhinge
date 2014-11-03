@@ -1,3 +1,5 @@
+'use strict';
+
 var midhinge = require( './../lib' );
 
 var data = new Array( 100 );

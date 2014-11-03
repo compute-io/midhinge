@@ -1,8 +1,8 @@
-midhinge
+Midhinge
 ===
 [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Coverage Status][coveralls-image]][coveralls-url] [![Dependencies][dependencies-image]][dependencies-url]
 
-> Compute the midhinge for an array of numeric values.
+> Compute the [midhinge](http://en.wikipedia.org/wiki/Midhinge) for a numeric array.
 
 
 ## Installation
@@ -22,20 +22,27 @@ To use the module,
 var midhinge = require( 'compute-midhinge' );
 ```
 
-#### midhinge( arr[, sorted] )
+#### midhinge( arr[, opts] )
 
-Computes the midhinge provided an input `array`. If the input `array` is already `sorted`, set the `boolean` flag to `true`.
+Computes the midhinge of a numeric `array`.
 
 ``` javascript
-var unsorted = [ 8, 2, 3, 9, 5, 1, 4, 10, 7, 0, 6 ],
-	sorted = [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ];
+var unsorted = [ 8, 2, 3, 9, 5, 1, 4, 10, 7, 0, 6 ];
 
-midhinge( unsorted );
-// returns 5
-
-midhinge( sorted, true );
+var mid = midhinge( unsorted );
 // returns 5
 ```
+
+If the input `array` is already `sorted` in __ascending__ order, set the `sorted` options flag to `true`.
+
+``` javascript
+var sorted = [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ];
+
+var mid = midhinge( sorted, {'sorted': true} );
+// returns 5
+```
+
+Additional options are the same as for the [quantile](https://github.com/compute-io/quantile) module.
 
 
 ## Examples
@@ -55,6 +62,11 @@ To run the example code from the top-level application directory,
 ``` bash
 $ node ./examples/index.js
 ```
+
+
+## Notes
+
+If provided an unsorted input `array`, the function is `O( N log(N) )`, where `N` is the input `array` length. If the input `array` is already sorted in __ascending__ order, the function is `O(1)`.
 
 
 ## Tests
