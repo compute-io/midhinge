@@ -2,7 +2,7 @@ Midhinge
 ===
 [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Coverage Status][coveralls-image]][coveralls-url] [![Dependencies][dependencies-image]][dependencies-url]
 
-> Compute the [midhinge](http://en.wikipedia.org/wiki/Midhinge) of a numeric array.
+> Computes the [midhinge](http://en.wikipedia.org/wiki/Midhinge) of a numeric array.
 
 
 ## Installation
