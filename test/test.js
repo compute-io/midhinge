@@ -1,3 +1,4 @@
+/* global describe, it, require */
 'use strict';
 
 // MODULES //
